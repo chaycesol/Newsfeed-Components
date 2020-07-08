@@ -170,4 +170,3 @@ function articleMaker(articleDataObj) {
 data.forEach ( item => {
   articles.append(articleMaker(item))
 })
-console.log(articleMaker());
