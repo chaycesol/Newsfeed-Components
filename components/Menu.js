@@ -33,28 +33,32 @@ let menuItems = [
 */
 
 
-const navMenu = document.querySelector('.menu-button')
+const navMenu = document.querySelector('.menu-button') // declaring to give access to menu-button in function
 
+
+//Menu Maker Function
 function menuMaker (menuItemsObj) {
-  const menuNavDiv = document.createElement('div')
-  const ul = document.createElement('ul')
+  const menuNavDiv = document.createElement('div') //create the top div menu
+  const ul = document.createElement('ul') // creating child unordered list
 
-  menuNavDiv.appendChild(ul)
+  menuNavDiv.appendChild(ul) //appending the ul to the menu div so links are visible in it
 
-  menuNavDiv.classList.add('menu')
+  menuNavDiv.classList.add('menu') //adding menu class to menu div
 
+  // loops through each item in menuItems Object to produce a list item in the unordered list
   menuItemsObj.forEach(liText => {
     const li = document.createElement('li')
     li.textContent = liText
     ul.appendChild(li)
   })
 
+  // event listener to open/close the menu when user clicks on icon
   navMenu.addEventListener ('click', ()=> {
     menuNavDiv.classList.toggle('menu--open')
   })
-  return menuNavDiv
+  return menuNavDiv // **Remember MUST return in a for loop and map
 }
 
-const newMenu = menuMaker(menuItems)
+const newMenu = menuMaker(menuItems) //invoking menuMaker function
 
-document.body.appendChild(newMenu)
+document.body.appendChild(newMenu) // adding newMenu to the DOM
