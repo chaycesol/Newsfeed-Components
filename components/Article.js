@@ -111,3 +111,30 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+const articles = document.querySelector('.articles')
+
+function articleMaker(data) {
+  const articleDiv = document.createElement('div') // creates main article div
+  const articleTitle = document.createElement('h2') // Creates headers for article
+  const articleDate = document.createElement('p') // Creates P tag for the date field
+  const firstPee = document.createElement('p') // creates P tag for first Paragraph field
+  const secondPee = document.createElement('p') // creates P tag for second Paragraph field
+  const thirdPee = document.createElement('p') // creates P tag for third Paragraph field
+  const expandSpan = document.createElement('span') // // creates span for the expand button 
+
+  //adding elements to article div in order of spec
+  articleDiv.appendChild(articleTitle)
+  articleDiv.appendChild(articleDate)
+  articleDiv.appendChild(firstPee)
+  articleDiv.appendChild(secondPee)
+  articleDiv.appendChild(thirdPee)
+  articleDiv.appendChild(expandSpan)
+
+  articleDiv.classList.add('article') // adding article class to articleDiv
+  articleDate.classList.add('date') //adding date class to articleDate
+  expandSpan.classList.add('expandButton') //adds expandButton class to expand button
+  console.log(articleDiv) //check to see if I'm building correctly
+}
+
+console.log(articleMaker());
