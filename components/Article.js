@@ -141,7 +141,7 @@ function articleMaker(articleDataObj) {
   //adding elements to article div in order of spec
   articleDiv.appendChild(articleTitle)
   articleDiv.appendChild(articleDate)
-  articleDiv.appendChild(firstPee)
+  articleDiv.appendChild(firstPee) 
   articleDiv.appendChild(secondPee)
   articleDiv.appendChild(thirdPee)
   articleDiv.appendChild(expandSpan)
@@ -170,3 +170,5 @@ function articleMaker(articleDataObj) {
 data.forEach ( item => {
   articles.append(articleMaker(item))
 })
+
+
