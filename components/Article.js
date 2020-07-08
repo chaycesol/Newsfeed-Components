@@ -85,6 +85,21 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+  title: 'ChayceTech Founder Chayce is now a billionare!',
+    date: 'Jan 1st, 2022',
+    firstParagraph: `Hooray hooray! Chayce is now a billionare and can join the forbes list of billionaires. Just passing Kylie Jenner by $1, he hopes 
+          to push out other rich people who are stealing our data or monoplizing industries such as Jeff Bezos and Mark Zuckerburg. `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -114,7 +129,7 @@ const data = [
 
 const articles = document.querySelector('.articles')
 
-function articleMaker(data) {
+function articleMaker(articleDataObj) {
   const articleDiv = document.createElement('div') // creates main article div
   const articleTitle = document.createElement('h2') // Creates headers for article
   const articleDate = document.createElement('p') // Creates P tag for the date field
@@ -134,7 +149,25 @@ function articleMaker(data) {
   articleDiv.classList.add('article') // adding article class to articleDiv
   articleDate.classList.add('date') //adding date class to articleDate
   expandSpan.classList.add('expandButton') //adds expandButton class to expand button
-  console.log(articleDiv) //check to see if I'm building correctly
+  
+  // mapping content from Data object into elements
+  articleTitle.textContent = articleDataObj.title
+  articleDate.textContent = articleDataObj.date
+  firstPee.textContent = articleDataObj.firstParagraph
+  secondPee.textContent = articleDataObj.secondParagraph
+  thirdPee.textContent = articleDataObj.thirdParagraph
+  expandSpan.textContent = "+Expand"
+
+  //adding event listener to expand article button
+  expandSpan.addEventListener ('click', e => {
+    articleDiv.classList.toggle('article-open')
+    expandSpan.textContent = 'Close';
+  })
+
+  return articleDiv
 }
 
+data.forEach ( item => {
+  articles.append(articleMaker(item))
+})
 console.log(articleMaker());
