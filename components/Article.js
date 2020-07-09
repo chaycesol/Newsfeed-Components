@@ -132,6 +132,7 @@ const articles = document.querySelector('.articles')
 function articleMaker(articleDataObj) {
   const articleDiv = document.createElement('div') // creates main article div
   const articleTitle = document.createElement('h2') // Creates headers for article
+  const markAsRead = document.createElement('button') // // creates span for the expand button 
   const articleDate = document.createElement('p') // Creates P tag for the date field
   const firstPee = document.createElement('p') // creates P tag for first Paragraph field
   const secondPee = document.createElement('p') // creates P tag for second Paragraph field
@@ -140,6 +141,7 @@ function articleMaker(articleDataObj) {
 
   //adding elements to article div in order of spec
   articleDiv.appendChild(articleTitle)
+  articleDiv.appendChild(markAsRead)
   articleDiv.appendChild(articleDate)
   articleDiv.appendChild(firstPee) 
   articleDiv.appendChild(secondPee)
@@ -152,6 +154,7 @@ function articleMaker(articleDataObj) {
   
   // mapping content from Data object into elements
   articleTitle.textContent = articleDataObj.title
+  markAsRead.textContent = 'Mark As Read'
   articleDate.textContent = articleDataObj.date
   firstPee.textContent = articleDataObj.firstParagraph
   secondPee.textContent = articleDataObj.secondParagraph
@@ -162,6 +165,10 @@ function articleMaker(articleDataObj) {
   expandSpan.addEventListener ('click', e => {
     articleDiv.classList.toggle('article-open')
     expandSpan.textContent = 'Close';
+  })
+
+  markAsRead.addEventListener ('click',  e => {
+    articleDiv.style.display = 'none';
   })
 
   return articleDiv
